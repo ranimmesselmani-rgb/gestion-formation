@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffeaa7;
+    margin: 0;
+    padding-top: 40px;
+    text-align: center;
+}
+
+/* العنوان فوق */
+h1 {
+    color: #e17055;
+    margin-bottom: 30px;
+}
+
+/* الفورم في الوسط */
+form {
+    background-color: white;
+    padding: 20px;
+    width: 320px;
+    margin: 0 auto; /* يخليه في الوسط */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #e17055;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #d35400;
+}
