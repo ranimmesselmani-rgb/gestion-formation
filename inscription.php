@@ -1,17 +1,67 @@
-<?php
-$id = $_GET['formation_id'] ?? 0;
-?>
+<?php require 'views/partials/header.php'; ?>
 
-<h2>📝 Inscription</h2>
+<h1>Formulaire d'Inscription</h1>
 
-<form method="POST" action="traitement.php" style="max-width:400px;margin:auto;">
-    <input type="text" name="nom" placeholder="Nom" required><br><br>
-    <input type="text" name="prenom" placeholder="Prénom" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
+<?php if (!empty($erreurs)): ?>
 
-    <input type="hidden" name="formation_id" value="<?= $id ?>">
+<div style="color:red;">
 
-    <button style="padding:10px 20px;background:#3498db;color:white;border:none;border-radius:5px;">
-        Valider
-    </button>
+<ul>
+
+<?php foreach ($erreurs as $e): ?>
+
+<li><?= htmlspecialchars($e) ?></li>
+
+<?php endforeach; ?>
+
+</ul>
+
+</div>
+
+<?php endif; ?>
+
+<form method="POST" action="index.php?page=inscription">
+
+<label>Nom :</label><br>
+<input type="text" name="nom" required><br><br>
+
+<label>Prénom :</label><br>
+<input type="text" name="prenom" required><br><br>
+
+<label>Email :</label><br>
+<input type="email" name="email" required><br><br>
+
+<label>Formation :</label><br>
+
+<select name="formation_id" required>
+
+<option value="">Choisir</option>
+
+<?php foreach ($formations as $f): ?>
+
+<option
+value="<?= $f['id'] ?>"
+
+<?= ($formation_preselect == $f['id']) ? 'selected' : '' ?>
+
+>
+
+<?= htmlspecialchars($f['titre']) ?>
+
+</option>
+
+<?php endforeach; ?>
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Continuer vers paiement
+
+</button>
+
 </form>
+
+<?php require 'views/partials/footer.php'; ?>
